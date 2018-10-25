@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "stripInternal": true,
+    "preserveConstEnums": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictFunctionTypes": true,
+    "noImplicitReturns": true,
+    "listFiles": true,
+    "removeComments": false,
+    "lib": [
+      "es2015",
+      "dom",
+      "es2016.array.include"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "doc",
+    "test",
+    "config.js",
+    "gulpfile.js",
+    "karma.conf.js"
+  ]
+}
+  

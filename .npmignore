@@ -1,0 +1,11 @@
+.rollupcache
+.vscode
+node_modules
+src
+.editorconfig
+.gitignore
+.npmignore
+package-lock.json
+rollup.config.js
+tsconfig.json
+tslint.json
