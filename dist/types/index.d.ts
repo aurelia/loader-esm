@@ -28,6 +28,7 @@ export declare class EsmLoader extends Loader {
 	};
 	modulesBeingLoaded: Map<string, Promise<any>>;
 	templateLoader: TextTemplateLoader;
+	baseUrl: string;
 	constructor();
 	/**
 	* Maps a module id to a source.

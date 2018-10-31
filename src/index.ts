@@ -52,6 +52,8 @@ export class EsmLoader extends Loader {
   modulesBeingLoaded = new Map<string, Promise<any>>();
   templateLoader: TextTemplateLoader;
 
+  baseUrl: string = location.origin || `${location.protocol}//${location.hostname}${location.port ? `:${location.port}` : ''}`;
+
   constructor() {
     super();
 
@@ -101,7 +103,7 @@ export class EsmLoader extends Loader {
       return await plugin.fetch(moduleId);
     }
 
-    return import(join(location.origin, moduleId)).then(m => {
+    return import(join(this.baseUrl, moduleId)).then(m => {
       this.moduleRegistry[moduleId] = m;
       return m;
     });

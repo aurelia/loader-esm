@@ -44,6 +44,7 @@ class EsmLoader extends Loader {
         this.moduleRegistry = Object.create(null);
         this.loaderPlugins = Object.create(null);
         this.modulesBeingLoaded = new Map();
+        this.baseUrl = location.origin || `${location.protocol}//${location.hostname}${location.port ? `:${location.port}` : ''}`;
         this.useTemplateLoader(new TextTemplateLoader());
         this.addPlugin('template-registry-entry', {
             fetch: async (moduleId) => {
@@ -85,7 +86,7 @@ class EsmLoader extends Loader {
             }
             return await plugin.fetch(moduleId);
         }
-        return import(join(location.origin, moduleId)).then(m => {
+        return import(join(this.baseUrl, moduleId)).then(m => {
             this.moduleRegistry[moduleId] = m;
             return m;
         });
