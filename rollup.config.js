@@ -8,7 +8,7 @@ export default [
   {
     input: 'src/index.ts',
     output: [
-      { file: 'dist/es2018/index.js', format: 'es' }
+      { file: 'dist/es2017/index.js', format: 'es' }
     ],
     external: externalLibs,
     plugins: [

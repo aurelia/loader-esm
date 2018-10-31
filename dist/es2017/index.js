@@ -1,6 +1,7 @@
 import { Origin } from 'aurelia-metadata';
 import { Loader } from 'aurelia-loader';
 import { DOM, PLATFORM } from 'aurelia-pal';
+import { join } from 'aurelia-path';
 
 /**
 * An implementation of the TemplateLoader interface implemented with text-based loading.
@@ -84,7 +85,7 @@ class EsmLoader extends Loader {
             }
             return await plugin.fetch(moduleId);
         }
-        return import(moduleId).then(m => {
+        return import(join(location.origin, moduleId)).then(m => {
             this.moduleRegistry[moduleId] = m;
             return m;
         });
